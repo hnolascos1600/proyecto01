@@ -1,0 +1,179 @@
+:root { /*pseudo-selectores*/ /*root son vars en css, tmb llamadas custom properties*/
+    --blanco: #FFFFFF;
+    --oscuro: #212121;
+    --primario: rgb(255,193,7);
+    --secundario: #0097A7;
+    --gris: #757575;
+
+    --fuente-principal: 3.8rem;
+} 
+
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit; /* hack para css box model */
+  }
+
+body{
+    font-size: 16px;
+    font-family: 'Krub', sans-serif;
+}
+
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+
+.titulo span {
+    font-size: 2rem; /* 1rem = 10px si se pone el código de arriba de html y body */
+}
+
+.contenedor{
+    max-width: 120rem;
+    /* margin-top: 0px ; /*en que posic un elementos */
+    /* margin-right: auto;
+    /* margin-bottom: 0px;
+    /* margin-left: auto;
+------- /* para centrar tanto m.right y m.left deben estar en auto
+
+    /* margin: 0 auto 0 auto;
+------- /* en vez de usar m-t, m-r, m-b , m-l se puede usar solo margin */
+    margin: 0 auto;
+}
+
+/* Para comentar automatico: Ctrl (hold) + K (Press) + C (Press) */
+
+.btn{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    /*padding: 1rem 3rem 1rem 3rem;*/
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold; /* bold = 700 */ /* 400 - 700 */
+    border-radius: 2rem;
+    width: 90%;
+    text-align: center;
+}
+
+@media (min-width: 480px) {
+    .btn{
+        width: auto;
+    }
+    
+}
+
+.nav-bg{
+    background-color: var(--secundario);
+}
+
+.navegacion-principal{
+    display: flex; /* flex habilita la flexbox */
+    flex-direction: column;
+}
+
+@media (min-width: 480px){
+    .navegacion-principal{
+        flex-direction: row;
+        justify-content: space-between; /* centra horizontalmente */
+        /*align-items: center; /* centra verticalmente */
+    }
+}
+/* padding -> engordar, desde donde termina el elemento hacia adentro q. separación
+/* margin -> del limite del elemento mas cercano hacia afuera q. separación */
+
+.navegacion-principal a {
+    display: block;
+    text-align: center;
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1rem;
+}
+
+/* 
+    SIEMPRE AL ELEM. PADRE DE LO QUE SE VA A ALINEAR
+    FLEXBOX -> modelo unidim. para crear layouts
+               solo colocar y distribuir elem. en una sola direcc. (row (izq o der) o column (up o down))
+               row es aplicado por default al definir display: flex
+               los otros valores son row-reverse, column y column-reverse
+
+               row o row-reverse o nada -> elem hijos de izq a der.
+               column o column-reverse -> elem hijos de arriba a abajo
+
+               p. alinear elementos en diseños. no añade efectos ni de animac. ni de textos.
+               solo para layouts
+    GRID -> 
+
+*/
+
+.navegacion-principal a:hover {
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+/* 
+ - - E V E N T O S - - 
+:hover -> cuando el mouse esta encima del elemento
+:link -> cuando el elemento es un enlace no visitado
+:active -> cuando se hace click en el elemento
+:focus -> cuando el elemento tiene el foco (cuando se hace click en el elemento)
+:target -> cuando el elemento es el objetivo de un enlace
+:enabled -> cuando el elemento esta habilitado
+:disabled -> cuando el elemento esta deshabilitado
+:checked -> cuando el elemento esta seleccionado
+... -> https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-classes
+*/
+
+/* prefix para querys -> mq Ctrl + Shift + 'P' y escribir snippets para CRUD de snipets*/
+/* tamaños de pantallas -> https://screensiz.es/phone */
+/* por lo regular 480px es para cels,  768px para tablets, 1024px/1140px para laptops, 1200px/1400px para desktops */
+/* también sepuede agregar un breakpoint para pantallas grandes */
+/* de igual forma se puede usar orientation para ver si es portrait o landscape  y modificarlo */
+
+.hero{ 
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    /*padding: 20px;*/
+    position: relative;
+}
+
+.contenido-hero{
+    position: absolute;
+    /*background-color: rgba( 0, 0, 0, 0.7); /* anterior */
+    background-color: rgb(0 0 0 /70%); /* actual */
+    /*bottom: 0;
+    left: 0;
+    top: 0;
+    right: 0;*/
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero h2, .contenido-hero p{
+    color: var(--blanco);
+}
